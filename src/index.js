@@ -1,9 +1,13 @@
 import express from'express';
 const app = express();
 const port = 3000;
+import url from "url";
+
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 app.get('/',(req, res) => {
-    res.send('Helooo World');
+    // res.send('Helooo World');
+    res.sendFile("./page/index.html",{root:__dirname});
 });
 
 app.get('/about',(req, res) => {
